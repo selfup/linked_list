@@ -244,7 +244,7 @@ class LinkedListTest < Minitest::Test
     assert_equal "data3", list.find_by_index(3)
   end
 
-  def test_it_can_return_a_node_value_near_the_middle
+  def test_it_can_return_a_node_value_between_two_nodes
     list = LinkedList.new
     node1 = Node.new("data1")
     node2 = Node.new("data2")
