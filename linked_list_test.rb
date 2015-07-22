@@ -215,12 +215,33 @@ class LinkedListTest < Minitest::Test
   end
 
 #21
-  # def test_it_can_stop_at_index
-  #   skip
-  #   list = LinkedList.new
-  #   node1 = Node.new("data1")
-  #   node2 = Node.new("data2")
-  #   list.append(node1).append(node2).append(node3)
-  #   assert_equal 1, list.something??
-  # end
+  def test_it_can_return_node_value_at_index_with_two_nodes
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    list.append(node1)
+    list.append(node2)
+    assert_equal "data1", list.find_by_index(1)
+  end
+
+#22
+  def test_it_can_return_node_value_at_index_with_two_nodes
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    list.append(node1)
+    list.append(node2)
+    assert_equal "data2", list.find_by_index(2)
+  end
+
+#23
+  def test_it_can_return_node_value_at_index
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    assert_equal "data3", list.find_by_index(3)
+  end
 end

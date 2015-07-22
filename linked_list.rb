@@ -35,6 +35,27 @@ class LinkedList
         count
       end
 
+      def find_by_index(current_node = @head, index)
+        count = 1
+        while current_node.next_node != nil
+          current_node = current_node.next_node
+          count += 1
+          if count == index
+            break
+          end
+        end
+          if count == index
+          current_node.data
+          end
+      end
+
+      def insert(position, insert_node)
+        # until traverse_count == position
+        #   break
+        # insert insert_node
+        # insert an element at an arbitrary position in the list
+      end
+
       def append(node)
         if @head.nil?
           @head = node
@@ -58,17 +79,6 @@ class LinkedList
       def prepend(node)
         node.next_node = @head
         @head = node
-      end
-
-      def insert(position, insert_node)
-        # until traverse_count == position
-        #   break
-        # insert insert_node
-        # insert an element at an arbitrary position in the list
-      end
-
-      def includes?(query_node, value)
-        
       end
 
 end
