@@ -157,7 +157,7 @@ class LinkedListTest < Minitest::Test
   end
 
 #17
-  def test_it_can_count_through_1
+  def test_it_can_count_through_3
     list = LinkedList.new
     node1 = Node.new("data1")
     node2 = Node.new("data2")
