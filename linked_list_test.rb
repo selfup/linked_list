@@ -215,11 +215,10 @@ class LinkedListTest < Minitest::Test
   end
 
 #21
-  def test_it_can_return_node_value_at_index_with_two_nodes
+  def test_it_can_return_node_value_at_index_with_one_nodes
     list = LinkedList.new
     node1 = Node.new("data1")
     list.append(node1)
-    list.append(node2)
     assert_equal "data1", list.find_by_index(1)
   end
 
@@ -243,5 +242,16 @@ class LinkedListTest < Minitest::Test
     list.append(node2)
     list.append(node3)
     assert_equal "data3", list.find_by_index(3)
+  end
+
+  def test_it_can_return_a_node_value_near_the_middle
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    assert_equal "data2", list.find_by_index(2)
   end
 end
