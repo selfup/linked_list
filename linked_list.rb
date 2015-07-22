@@ -25,6 +25,16 @@ class LinkedList
         count
       end
 
+      # Extension
+      def distance_count(starting_node, ending_node)
+        count = 0
+        while starting_node.next_node != ending_node
+          starting_node = starting_node.next_node
+          count += 1
+        end
+        count
+      end
+
       def append(node)
         if @head.nil?
           @head = node
@@ -57,8 +67,8 @@ class LinkedList
         # insert an element at an arbitrary position in the list
       end
 
-      def includes?
-        # gives back true or false wether the supplied value is in the list
+      def includes?(query_node, value)
+        
       end
 
 end
