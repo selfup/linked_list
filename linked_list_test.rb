@@ -433,5 +433,4 @@ class LinkedListTest < Minitest::Test
    assert_equal true, list.includes?("data2")
  end
 
-
 end
