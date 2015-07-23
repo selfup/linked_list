@@ -25,8 +25,7 @@ class LinkedList
         count
       end
 
-      # Extension
-      def distance_count(starting_node, ending_node)
+      def distance_count(starting_node, ending_node) # Extension
         count = 0
         while starting_node.next_node != ending_node
           starting_node = starting_node.next_node
@@ -49,11 +48,11 @@ class LinkedList
           end
       end
 
-      def insert(position, insert_node)
-        # until traverse_count == position
-        #   break
-        # insert insert_node
-        # insert an element at an arbitrary position in the list
+      def insert(position, data)
+        position.times { |pos| current_node.next_node }
+        temp = current_node.next_node
+        current_node = temp
+        temp = current_node.next_node.next_node
       end
 
       def append(node)
@@ -80,5 +79,34 @@ class LinkedList
         node.next_node = @head
         @head = node
       end
+
+      def pop
+        current_node = @head
+        until current_node.next_node.next_node == nil
+          current_node = current_node.next_node
+        end
+        current_node.next_node = nil
+      end
+
+      def find_by_value(data)
+        current_node = @head
+        until current_node.data == data
+          current_node = current_node.next_node
+        end
+        current_node
+      end
+
+      def remove_by_value(data)
+        current_node = @head
+        until current_node.data == data
+          current_node = current_node.next_node
+        end
+        upcoming_node = current_node.next_node
+        current_node = upcoming_node
+      end
+
+      def remove_by_index
+      end
+
 
 end

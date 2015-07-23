@@ -244,6 +244,7 @@ class LinkedListTest < Minitest::Test
     assert_equal "data3", list.find_by_index(3)
   end
 
+#24
   def test_it_can_return_a_node_value_between_two_nodes
     list = LinkedList.new
     node1 = Node.new("data1")
@@ -254,4 +255,65 @@ class LinkedListTest < Minitest::Test
     list.append(node3)
     assert_equal "data2", list.find_by_index(2)
   end
+
+#25
+  def test_it_finds_by_value
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    list.append(node1)
+    list.append(node2)
+    list.pop
+    assert_equal nil, list.head.next_node
+  end
+
+#26
+  def test_it_can_pop_when_there_are_two
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    list.append(node1)
+    list.append(node2)
+    list.pop
+    assert_equal nil, list.head.next_node
+  end
+
+#27
+  def test_it_can_pop_when_there_are_three
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    list.pop
+    assert_equal nil, list.head.next_node.next_node
+  end
+
+#28
+  def test_it_can_remove_by_value
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    assert_equal node3, list.remove_by_value("data2")
+  end
+
+#29
+ def test_it_can_insert_at_position
+   list = LinkedList.new
+   node1 = Node.new("data1")
+   node2 = Node.new("data2")
+   node3 = Node.new("data3")
+   list.append(node1)
+   list.append(node2)
+   list.append(node3)
+   assert_equal node3, list.insert(2, "data78")
+ end
+
+
 end
