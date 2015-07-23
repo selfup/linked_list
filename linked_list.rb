@@ -127,7 +127,7 @@ class LinkedList
             current_node = current_node.next_node
           end
           upcoming_node = current_node.next_node
-          current_node = upcoming_node
+          current_node = upcoming_nodes
         end
       end
 
