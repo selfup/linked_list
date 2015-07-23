@@ -44,15 +44,17 @@ class LinkedList
           end
         end
           if count == index
-          current_node.data
+          current_node
           end
       end
 
       def insert(position, data)
-        position.times { |pos| current_node.next_node }
+        current_node = @head
+        (position - 1).times { current_node = current_node.next_node }
         temp = current_node.next_node
-        current_node = temp
-        temp = current_node.next_node.next_node
+        current_node.next_node = data
+        current_node.next_node.next_node = temp
+        # data
       end
 
       def append(node)
