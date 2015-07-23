@@ -421,4 +421,17 @@ class LinkedListTest < Minitest::Test
    refute_equal list.find_by_index(2), list.remove_by_index(2)
  end
 
+#39
+ def test_it_removes_by_index
+   list = LinkedList.new
+   node1 = Node.new("data1")
+   node2 = Node.new("data2")
+   node3 = Node.new("data3")
+   list.append(node1)
+   list.append(node2)
+   list.append(node3)
+   assert_equal true, list.includes?("data2")
+ end
+
+
 end

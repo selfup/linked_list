@@ -131,4 +131,14 @@ class LinkedList
         end
       end
 
+      def includes?(data)
+        count = 1
+        current_node = @head
+        until current_node == find_by_index(count)
+          current_node = current_node.next_node
+          count += 1
+          return true
+        end
+      end
+
 end
