@@ -143,7 +143,7 @@ class LinkedListTest < Minitest::Test
     list = LinkedList.new
     node1 = Node.new("data1")
     list.append(node1)
-    assert_equal 1, list.traverse_count(node1)
+    assert_equal 1, list.count(node1)
   end
 
 #16
@@ -153,7 +153,7 @@ class LinkedListTest < Minitest::Test
     node2 = Node.new("data2")
     list.append(node1)
     list.append(node2)
-    assert_equal 2, list.traverse_count(node1)
+    assert_equal 2, list.count(node1)
   end
 
 #17
@@ -165,7 +165,7 @@ class LinkedListTest < Minitest::Test
     list.append(node1)
     list.append(node2)
     list.append(node3)
-    assert_equal 3, list.traverse_count(node1)
+    assert_equal 3, list.count(node1)
   end
 
 #18
@@ -291,7 +291,7 @@ class LinkedListTest < Minitest::Test
   end
 
 #28
-  def test_it_returns_nil_when_no_data_found
+  def test_it_returns_nil_when_no_data_found_when_finding_by_value
     list = LinkedList.new
     node1 = Node.new("data1")
     node2 = Node.new("data2")
@@ -443,6 +443,18 @@ class LinkedListTest < Minitest::Test
    list.append(node2)
    list.append(node3)
    assert_equal true, list.includes?("data3")
+ end
+
+#41
+ def test_it_returns_false_when_data_is_not_found
+   list = LinkedList.new
+   node1 = Node.new("data1")
+   node2 = Node.new("data1")
+   node3 = Node.new("data3")
+   list.append(node1)
+   list.append(node2)
+   list.append(node3)
+   refute_equal node3, list.includes?("data2")
  end
 
 end

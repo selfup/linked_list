@@ -9,6 +9,31 @@ class LinkedList
         @head = head
       end
 
+      def append(node)
+        if @head.nil?
+          @head = node
+        else
+          current_node = @head
+          tail = traverse(current_node)
+          tail.next_node = node
+        end
+      end
+
+      def prepend(node)
+        node.next_node = @head
+        @head = node
+      end
+
+      def tail(current_node = @head)
+        if current_node.next_node == nil
+          current_node
+        elsif current_node.next_node.next_node == nil
+          current_node.next_node
+        else
+          tail(current_node.next_node)
+        end
+      end
+
       def traverse(current_node)
         while current_node.next_node != nil
           current_node = current_node.next_node
@@ -16,7 +41,7 @@ class LinkedList
         current_node
       end
 
-      def traverse_count(current_node)
+      def count(current_node)
         count = 1
         while current_node.next_node != nil
           current_node = current_node.next_node
@@ -48,47 +73,6 @@ class LinkedList
           end
       end
 
-      def insert(position, data)
-        current_node = @head
-        (position - 1).times { current_node = current_node.next_node }
-        temp = current_node.next_node
-        current_node.next_node = data
-        current_node.next_node.next_node = temp
-      end
-
-      def append(node)
-        if @head.nil?
-          @head = node
-        else
-          current_node = @head
-          tail = traverse(current_node)
-          tail.next_node = node
-        end
-      end
-
-      def tail(current_node = @head)
-        if current_node.next_node == nil
-          current_node
-        elsif current_node.next_node.next_node == nil
-          current_node.next_node
-        else
-          tail(current_node.next_node)
-        end
-      end
-
-      def prepend(node)
-        node.next_node = @head
-        @head = node
-      end
-
-      def pop
-        current_node = @head
-        until current_node.next_node.next_node == nil
-          current_node = current_node.next_node
-        end
-        current_node.next_node = nil
-      end
-
       def find_by_value(data)
         count = 1
         current_node = @head
@@ -111,6 +95,14 @@ class LinkedList
         counter
       end
 
+      def pop
+        current_node = @head
+        until current_node.next_node.next_node == nil
+          current_node = current_node.next_node
+        end
+        current_node.next_node = nil
+      end
+
       def remove_by_value(data)
         current_node = @head
         until current_node.data == data
@@ -118,6 +110,14 @@ class LinkedList
         end
         upcoming_node = current_node.next_node
         current_node = upcoming_node
+      end
+
+      def insert(position, data)
+        current_node = @head
+        (position - 1).times { current_node = current_node.next_node }
+        temp = current_node.next_node
+        current_node.next_node = data
+        current_node.next_node.next_node = temp
       end
 
       def remove_by_index(position)
