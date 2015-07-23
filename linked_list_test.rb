@@ -11,13 +11,13 @@ class LinkedListTest < Minitest::Test
   end
 
 #2
-  def test_it_initializes_with_nil_head
+  def test_it_returns_value_of_head
     list = LinkedList.new
     assert_equal nil, list.head
   end
 
 #3
-  def test_append_new_node
+  def test_it_can_append_new_node
     list = LinkedList.new
     node1 = Node.new("data1")
     list.append(node1)
@@ -25,7 +25,7 @@ class LinkedListTest < Minitest::Test
   end
 
 #4
-  def test_append_new_nodes
+  def test_it_can_append_new_nodes
     list = LinkedList.new
     node1 = Node.new("data1")
     node2 = Node.new("data2")
@@ -215,7 +215,7 @@ class LinkedListTest < Minitest::Test
   end
 
 #21
-  def test_it_can_return_node_value_at_index_with_one_nodes
+  def test_it_can_return_node_value_at_index_with_one_node
     list = LinkedList.new
     node1 = Node.new("data1")
     list.append(node1)
@@ -278,6 +278,7 @@ class LinkedListTest < Minitest::Test
     assert_equal 2, list.find_by_value("data2")
   end
 
+#27
   def test_it_finds_by_value_at_pos_three
     list = LinkedList.new
     node1 = Node.new("data1")
@@ -289,6 +290,7 @@ class LinkedListTest < Minitest::Test
     assert_equal 3, list.find_by_value("data3")
   end
 
+#28
   def test_it_returns_nil_when_no_data_found
     list = LinkedList.new
     node1 = Node.new("data1")
@@ -300,7 +302,7 @@ class LinkedListTest < Minitest::Test
     assert_equal nil, list.find_by_value_error("data4")
   end
 
-#26
+#29
   def test_it_can_pop_when_there_are_two
     list = LinkedList.new
     node1 = Node.new("data1")
@@ -311,7 +313,7 @@ class LinkedListTest < Minitest::Test
     assert_equal nil, list.head.next_node
   end
 
-#27
+#30
   def test_it_can_pop_when_there_are_three
     list = LinkedList.new
     node1 = Node.new("data1")
@@ -324,8 +326,18 @@ class LinkedListTest < Minitest::Test
     assert_equal nil, list.head.next_node.next_node
   end
 
-#28
-  def test_it_can_remove_by_value
+#31
+  def test_it_can_remove_by_value_on_small_list
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    list.append(node1)
+    list.append(node2)
+    assert_equal node2, list.remove_by_value("data1")
+  end
+
+#32
+  def test_it_can_remove_by_value_on_a_bigger_list
     list = LinkedList.new
     node1 = Node.new("data1")
     node2 = Node.new("data2")
@@ -336,8 +348,32 @@ class LinkedListTest < Minitest::Test
     assert_equal node3, list.remove_by_value("data2")
   end
 
-#29
- def test_it_can_insert_at_position
+#33
+  def test_it_can_remove_by_value_at_the_first_node
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    assert_equal node2, list.remove_by_value("data1")
+  end
+
+
+#34
+  def test_it_can_insert_at_a_low_position
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    new_node = Node.new("data78")
+    list.append(node1)
+    list.append(node2)
+    assert_equal list.find_by_index(2), list.insert(1, new_node)
+  end
+
+#35
+ def test_it_can_insert_at_a_greater_position
    list = LinkedList.new
    node1 = Node.new("data1")
    node2 = Node.new("data2")
@@ -346,8 +382,43 @@ class LinkedListTest < Minitest::Test
    list.append(node1)
    list.append(node2)
    list.append(node3)
-   assert_equal list.find_by_index(2), list.insert(1, new_node)
+   assert_equal list.find_by_index(3), list.insert(2, new_node)
  end
 
+#36
+  def test_it_removes_by_index_at_first_pos
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    assert_equal list.find_by_index(1), list.remove_by_index(1)
+  end
+
+#37
+  def test_it_removes_by_index_last_position
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    refute_equal list.find_by_index(3), list.remove_by_index(3)
+  end
+
+#38
+ def test_it_removes_by_index
+   list = LinkedList.new
+   node1 = Node.new("data1")
+   node2 = Node.new("data2")
+   node3 = Node.new("data3")
+   list.append(node1)
+   list.append(node2)
+   list.append(node3)
+   refute_equal list.find_by_index(2), list.remove_by_index(2)
+ end
 
 end

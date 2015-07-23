@@ -120,8 +120,15 @@ class LinkedList
         current_node = upcoming_node
       end
 
-      def remove_by_index
+      def remove_by_index(position)
+        current_node = @head
+        if current_node == find_by_index(position)
+          until current_node == position
+            current_node = current_node.next_node
+          end
+          upcoming_node = current_node.next_node
+          current_node = upcoming_node
+        end
       end
-
 
 end
