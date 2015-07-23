@@ -422,7 +422,7 @@ class LinkedListTest < Minitest::Test
  end
 
 #39
- def test_it_removes_by_index
+ def test_it_returns_true_when_value_is_found
    list = LinkedList.new
    node1 = Node.new("data1")
    node2 = Node.new("data2")
@@ -431,6 +431,18 @@ class LinkedListTest < Minitest::Test
    list.append(node2)
    list.append(node3)
    assert_equal true, list.includes?("data2")
+ end
+
+#40
+ def test_it_returns_true_when_data_is_found_after_a_pair_of_data
+   list = LinkedList.new
+   node1 = Node.new("data1")
+   node2 = Node.new("data1")
+   node3 = Node.new("data3")
+   list.append(node1)
+   list.append(node2)
+   list.append(node3)
+   assert_equal true, list.includes?("data3")
  end
 
 end
