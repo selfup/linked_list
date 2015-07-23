@@ -90,11 +90,25 @@ class LinkedList
       end
 
       def find_by_value(data)
+        count = 1
         current_node = @head
         until current_node.data == data
+          count += 1
           current_node = current_node.next_node
         end
-        current_node
+        count
+      end
+
+      def find_by_value_error(data)
+        counter = 0
+        while find_by_index(counter) != data
+          if find_by_index(counter) == nil
+            return nil
+          else
+            counter += 1
+          end
+        end
+        counter
       end
 
       def remove_by_value(data)

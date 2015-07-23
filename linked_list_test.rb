@@ -263,8 +263,41 @@ class LinkedListTest < Minitest::Test
     node2 = Node.new("data2")
     list.append(node1)
     list.append(node2)
-    list.pop
-    assert_equal nil, list.head.next_node
+    assert_equal 1, list.find_by_value("data1")
+  end
+
+#26
+  def test_it_finds_by_value_at_pos_two
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    assert_equal 2, list.find_by_value("data2")
+  end
+
+  def test_it_finds_by_value_at_pos_three
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    assert_equal 3, list.find_by_value("data3")
+  end
+
+  def test_it_returns_nil_when_no_data_found
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    assert_equal nil, list.find_by_value_error("data4")
   end
 
 #26
