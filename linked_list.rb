@@ -54,7 +54,6 @@ class LinkedList
         temp = current_node.next_node
         current_node.next_node = data
         current_node.next_node.next_node = temp
-        # data
       end
 
       def append(node)
