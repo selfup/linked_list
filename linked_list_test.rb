@@ -373,17 +373,17 @@ class LinkedListTest < Minitest::Test
   end
 
 #35
- def test_it_can_insert_at_a_greater_position
-   list = LinkedList.new
-   node1 = Node.new("data1")
-   node2 = Node.new("data2")
-   node3 = Node.new("data3")
-   new_node = Node.new("data78")
-   list.append(node1)
-   list.append(node2)
-   list.append(node3)
-   assert_equal list.find_by_index(3), list.insert(2, new_node)
- end
+  def test_it_can_insert_at_a_greater_position
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    new_node = Node.new("data78")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    assert_equal list.find_by_index(3), list.insert(2, new_node)
+  end
 
 #36
   def test_it_removes_by_index_at_first_pos
@@ -410,51 +410,51 @@ class LinkedListTest < Minitest::Test
   end
 
 #38
- def test_it_removes_by_index
-   list = LinkedList.new
-   node1 = Node.new("data1")
-   node2 = Node.new("data2")
-   node3 = Node.new("data3")
-   list.append(node1)
-   list.append(node2)
-   list.append(node3)
-   refute_equal list.find_by_index(2), list.remove_by_index(2)
- end
+  def test_it_removes_by_index
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    refute_equal list.find_by_index(2), list.remove_by_index(2)
+  end
 
 #39
- def test_it_returns_true_when_value_is_found
-   list = LinkedList.new
-   node1 = Node.new("data1")
-   node2 = Node.new("data2")
-   node3 = Node.new("data3")
-   list.append(node1)
-   list.append(node2)
-   list.append(node3)
-   assert_equal true, list.includes?("data2")
- end
+  def test_it_returns_true_when_value_is_found
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data2")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    assert_equal true, list.includes?("data2")
+  end
 
 #40
- def test_it_returns_true_when_data_is_found_after_a_pair_of_data
-   list = LinkedList.new
-   node1 = Node.new("data1")
-   node2 = Node.new("data1")
-   node3 = Node.new("data3")
-   list.append(node1)
-   list.append(node2)
-   list.append(node3)
-   assert_equal true, list.includes?("data3")
- end
+  def test_it_returns_true_when_data_is_found_after_a_pair_of_data
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data1")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    assert_equal true, list.includes?("data3")
+  end
 
 #41
- def test_it_returns_false_when_data_is_not_found
-   list = LinkedList.new
-   node1 = Node.new("data1")
-   node2 = Node.new("data1")
-   node3 = Node.new("data3")
-   list.append(node1)
-   list.append(node2)
-   list.append(node3)
-   refute_equal node3, list.includes?("data2")
- end
+  def test_it_returns_false_when_data_is_not_found
+    list = LinkedList.new
+    node1 = Node.new("data1")
+    node2 = Node.new("data1")
+    node3 = Node.new("data3")
+    list.append(node1)
+    list.append(node2)
+    list.append(node3)
+    refute_equal node3, list.includes?("data2")
+  end
 
 end
